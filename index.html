@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/b73cb116e4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="form-cont" class="form-container">
+    <h1 class="main-heading violet text-center">Resume Maker</h1>
+    <div class="rules-cont">
+      <ul class="rules-ul">
+        <li class="bold rules-li lg-content">Fill the form & get your resume instantly</li>
+      </ul>
+    </div>
+    <form id="form" class="form-bg">
+      <div class="header-section">
+        <div class="header-item">
+          <p class="pr">Enter your name : </p>
+          <div class="input-container">
+            <input required id="name" onblur="validateName()" class="input-control" type="text" placeholder="Your Name">
+            <span id="name-text" class=""></span>
+          </div>
+        </div>
+
+
+        <div class="header-item">
+          <p class="pr">Enter your Designation : </p>
+          <div class="input-container">
+            <input required id="designation" onblur="validateDesignation()" class="input-control" type="text"
+              placeholder="Your Designation">
+            <span id="designation-text" class=""></span>
+          </div>
+        </div>
+
+        <div class="header-item">
+          <p class="pr">Enter your Mobile No : </p>
+          <span class="input-container">
+            <input required id="mobile" onblur="validateMobile()" class="input-control" type="number"
+              placeholder="Your Mobile Number">
+            <span id="mobile-text" class=""></span>
+          </span>
+        </div>
+
+        <div class="header-item">
+          <p class="pr">Enter your Email : </p>
+          <span class="input-container">
+            <input required id="email" onblur="validateEmail()" class="input-control" type="text"
+              placeholder="Your Email">
+            <span id="email-text" class=""></span>
+          </span>
+        </div>
+
+        <div class="header-item">
+          <p class="pr">Enter your LinkedIn Url : </p>
+          <span class="input-container">
+            <input required id="linkedin" onblur="validateLinkedIn()" class="input-control" type="text"
+              placeholder="Your LinkedIn profile">
+            <span id="linkedin-text" class=""></span>
+          </span>
+        </div>
+
+        <div class="header-item">
+          <p class="pr">Enter your Github Url : </p>
+          <span class="input-container">
+            <input required id="github" onblur="validateGithub()" class="input-control" type="text"
+              placeholder="Your GitHub profile">
+            <span id="github-text" class=""></span>
+          </span>
+        </div>
+
+
+      </div>
+
+      <div class="summary-section">
+        <p class="pr content">Enter your Career Objective : </p>
+        <textarea required id="summary" class="content summary-cont" placeholder="Your Career Objective"></textarea>
+      </div>
+
+      <div class="skills-section">
+        <p class="pr content">Enter your skills : </p>
+        <p class="pr">
+          - Enter a skill and click on add -
+        </p>
+        <div class="skills-input-container">
+          <input type="text" id="skill-input" placeholder="Your Skill" class="input-control skills-input">
+          <button type="button" onclick="addSkill()" id="skill-btn" class="skills-add-btn">Add</button>
+        </div>
+        <ul id="skills-ul-cont" class="skills-ul">
+          <!-- <li class="skills-li"><span class="skill-text">HTML</span>
+                        <span><i class="fa-solid fa-trash remove-icon"></i></span>
+                    </li> -->
+        </ul>
+      </div>
+
+      <div class="education-section">
+        <p class="pr content education-p">Enter your Education details : </p>
+        <p class="pr education-p">-Enter each field, No field should be left blank-</p>
+        <div class="edu-input-cont">
+          <p class="pr">Enter your Degree Name : </p>
+          <span class="input-container">
+            <input id="degree" class="input-control" type="text" placeholder="Your Degree Name">
+          </span>
+        </div>
+
+        <div class="edu-input-cont">
+          <p class="pr">Enter your Institute Name : </p>
+          <span class="input-container">
+            <input id="institute" class="input-control" type="text" placeholder="Your Institute Name">
+          </span>
+        </div>
+
+        <div class="edu-input-cont">
+          <p class="pr">Enter your Grade / Percentage : </p>
+          <span class="input-container">
+            <input id="grade" class="input-control" type="text" placeholder="Your Grade / Percentage">
+          </span>
+        </div>
+
+        <div class="edu-input-cont">
+          <p class="pr">Enter your duration : </p>
+          <span class="input-container">
+            <input id="duration" class="input-control" type="text" placeholder="eg: 2021-25">
+          </span>
+        </div>
+
+        <button onclick="addEducation()" class="education-btn" type="button">
+          Add Education Details
+        </button>
+
+        <ul id="education-ul-cont" class="skills-ul education-p">
+          <!-- <li class="skills-li">
+                        <div class="column-div">
+                            <span class="skill-text">B.Tech</span>
+                            <span>Vishnu Institute</span>
+                            <span>10.0 cgpa</span>
+                            <span>2021-25</span>
+                        </div>
+                        <i class="fa-solid fa-trash remove-icon"></i>
+                    </li> -->
+
+
+        </ul>
+      </div>
+
+      <div class="projects-section">
+        <p class="pr content education-p">Enter your project Details : </p>
+        <div class="edu-input-cont">
+          <p class="pr">Enter your Project Name : </p>
+          <span class="input-container">
+            <input id="project-name" class="input-control" type="text" placeholder="Your Project Name">
+          </span>
+        </div>
+
+        <div class="edu-input-cont">
+          <p class="pr">Enter your Project URL : </p>
+          <span class="input-container">
+            <input id="project-url" class="input-control" type="text" placeholder="Your Project URL">
+          </span>
+        </div>
+
+        <button onclick="addProject()" class="education-btn" type="button">
+          Add Project
+        </button>
+
+        <ul id="projects-ul-cont" class="skills-ul education-p">
+          <!-- <li class="skills-li">
+                        <div class="column-div">
+                            <span class="row-div"><span class="skill-text">project Name:</span> Food Munch</span>
+                            <span class="row-div"><span class="skill-text">url: </span> http://localhost:5000</span>
+                        </div>
+                        <i class="fa-solid fa-trash remove-icon"></i>
+                    </li>  -->
+        </ul>
+
+      </div>
+
+      <div class="certificates-section">
+        <p class="pr content education-p">Enter your Certificate Details : </p>
+        <div class="edu-input-cont">
+          <p class="pr">Enter your Certificate Name : </p>
+          <span class="input-container">
+            <input id="certificate-name" class="input-control" type="text" placeholder="Your Certificate Name">
+          </span>
+        </div>
+
+        <div class="edu-input-cont">
+          <p class="pr">Enter your certificate URL : </p>
+          <span class="input-container">
+            <input id="certificate-url" class="input-control" type="text" placeholder="Your Certificate URL">
+          </span>
+        </div>
+
+        <button onclick="addCertificate()" class="education-btn" type="button">
+          Add Certificate
+        </button>
+
+        <ul id="certificates-ul-cont" class="skills-ul education-p">
+
+        </ul>
+
+      </div>
+
+      <div class="generate-resume-btn-container">
+        <button type="submit" class="generate-resume-btn">
+          Generate Resume
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div id="resume" class="hide resume-container">
+    <div class="resume-details-container">
+      <h1 id="resume-name" class="resume-violet"></h1>
+      <p id="resume-designation" class="resume-designation resume-bold">Student</p>
+      <div class="resume-contacts-cont">
+        <div class="resume-contact-item-cont">
+          <span><i class="fa-solid fa-phone"></i></span>
+          <a id="resume-mobile" href="" class="resume-link resume-contact-item"></a>
+          <span class="resume-bold">|</span>
+        </div>
+        <div class="resume-contact-item-cont">
+          <span><i class="fa-solid fa-envelope"></i></span>
+          <a id="resume-mail" href="" class="resume-link resume-contact-item"></a>
+          <span class="resume-bold">|</span>
+        </div>
+        <div class="resume-contact-item-cont">
+          <span><i class="fa-brands fa-linkedin"></i></span>
+          <a id="resume-linkedin" href="" class="resume-link resume-contact-item"></span>
+            <span class="resume-bold">|</span>
+        </div>
+        <div class="resume-contact-item-cont">
+          <span><i class="fa-brands fa-github"></i></span>
+          <a id="resume-github" href="" class=" resume-link resume-contact-item"></span>
+            <span class="resume-bold">|</span>
+        </div>
+      </div>
+
+    </div>
+    <hr class="resume-violet resume-line" />
+    <div class="resume-objective-cont">
+      <h2 class="resume-side-heading resume-violet">Career Objective :</h2>
+      <p id="resume-careerobjective" class="resume-content"></p>
+    </div>
+    <div class="resume-skills-cont">
+      <h2 class="resume-side-heading resume-violet">Skills :</h2>
+      <hr class="resume-violet resume-line" />
+      <ol id="resume-skillsol" class="resume-skills-ul">
+        <!-- <li class="resume-skills-li resume-content resume-bold">HTML</li>
+        <li class="resume-skills-li resume-content resume-bold">CSS</li>
+        <li class="resume-skills-li resume-content resume-bold">JS</li>
+        <li class="resume-skills-li resume-content resume-bold">React JS</li>
+        <li class="resume-skills-li resume-content resume-bold">Node JS</li>
+        <li class="resume-skills-li resume-content resume-bold">SQL</li> -->
+      </ol>
+    </div>
+    <div class="resume-education-cont">
+      <h2 class="resume-side-heading resume-violet">Education :</h2>
+      <hr class="resume-violet resume-line" />
+      <ul id="resume-education-ul">
+        <!-- <li class="resume-edu">
+          <div class="resume-edu-left">
+            <h4>
+              B Tech
+            </h4>
+            <p>
+              Vishnu Institute of Technology
+            </p>
+
+
+          </div>
+          <div class="resume-edu-right">
+            <h4> CGPA-8.6</h4>
+            <h4> 2021-2025</h4>
+          </div>
+
+        </li>
+
+        <li class="resume-edu">
+          <div class="resume-edu-left">
+            <h4>
+              Intermediate
+            </h4>
+            <p>
+              BIIT Junior College,Guntur
+            </p>
+
+
+          </div>
+          <div class="edu-right">
+            <h4> CGPA-98.1</h4>
+            <h4> 2019-2021</h4>
+          </div>
+
+        </li>
+        <li class="resume-edu">
+          <div class="resume-edu-left">
+            <h4>
+              Tenth
+            </h4>
+            <p>
+              Bhashyam English Medium High School,PDRL
+            </p>
+
+
+          </div>
+          <div class="edu-right">
+            <h4> CGPA-10</h4>
+            <h4> 2018-2019</h4>
+          </div>
+
+        </li> -->
+      </ul>
+    </div>
+    <div class="resume-project">
+      <h2 class="resume-side-heading resume-violet">Projects </h2>
+      <hr class="resume-violet resume-line" />
+
+      <ul id="resume-projects-ul" class="resume-proj-div">
+        <!-- <li class="list-style-none">
+          <h4 class="resume-cal"> Basic Calculator </h4>
+          <p><b>URL :</b> http://aws-workshop-sid-calculator.s3-website-us-east-1.amazonaws.com/</p>
+        </li>
+        <li class="list-style-none">
+          <h4 class="resume-cal"> Food Munch </h4>
+          <p><b>URL :</b> http://aws-workshop-foodmunch-sidhu.s3-website-us-east-1.amazonaws.com/</p>
+
+        </li> -->
+
+      </ul>
+
+      <section class="resume-certificates">
+        <div class="resume-certi">
+          <h2 class="resume-side-heading resume-violet">Certificates </h2>
+          <hr class="resume-violet resume-line" />
+          <div id="resume-certificatediv" class="resume-certificatediv">
+            <!-- <div class="resume-certificate-item">
+              <h4>Built your own static website(HTML,CSS,Bootstrap)</h4>
+              <p>
+                <b> URL :</b>
+                https://certificates.ccbp.in/academy/static-website?id=SSERVDIRCD
+              </p>
+            </div>
+            <div class="resume-certificate-item">
+              <h4>Built your own Responsive Website(Flexbox,Bootstrap)</h4>
+              <p>
+                <b> URL :</b>
+                https://certificates.ccbp.in/academy/build-your-own-responsive-website?id=EMHMEILAOT
+              </p>
+            </div>
+            <div class="resume-certificate-item">
+              <h4>Programming Foundations with Python(Python)</h4>
+              <p>
+                <b> URL :</b>
+                https://certificates.ccbp.in/academy/programming-foundations-with-python?id=KPLPJLWLUA
+              </p>
+            </div>
+            </p>
+
+            <div class="resume-certificate-item">
+              <h4>Built your own static website(HTML,CSS,Bootstrap)</h4>
+              <p>
+                <b> URL :</b>
+                https://certificates.ccbp.in/academy/static-website?id=SSERVDIRCD
+              </p>
+            </div>
+            <div class="resume-certificate-item">
+              <h4>Introduction to Databases(SQL)</h4>
+              <p>
+                <b> URL :</b>
+                https://certificates.ccbp.in/academy/introduction-to-databases?id=VLXFQJGKDO
+              </p>
+            </div> -->
+
+          </div>
+        </div>
+      </section>
+      <div class="down">
+        <div id="resume-download-icon" class="download-container">
+          <i class="download-icon fa-solid fa-download"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="index.js"></script>
+</body>
+
+</html>
